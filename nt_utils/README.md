@@ -2,12 +2,12 @@
 This is a simple library for simplifying exporting jupyter notebooks (and intended for using it while running a notebook).
 
 ## Usage
-The next script will create a python script called "scene.py" by taking in order all code cells from example.ipynb that are tagged with "export" or "export_mee_too" igoring those who are tagged with some of the ignored_tags.
+The next script will create a python script called "output_file.py" by taking in order all code cells from example.ipynb that are tagged with "export" or "export_mee_too" igoring those who are tagged with some of the ignored_tags.
 
 ```python
 from nt_utils import export_cells
 
-export_cells("example.ipynb", "ouput_file.py", tags=["export", "export_me_too"], ignored_tags=["ignore"])
+export_cells("example.ipynb", "output_file.py", tags=["export", "export_me_too"], ignored_tags=["ignore"])
 ```
 
 ## Example use case
@@ -20,7 +20,7 @@ Your last cell could look like this:
 from subprocess import run
 from nt_utils import export_cells
 
-export_cells("example.ipynb", "scene.py", tags=[], ignored_tags=["ignore"])
+export_cells("example.ipynb", "output_file.py", tags=[], ignored_tags=["ignore"])
 
 output = run("manim -pqm scene.py SceneName".split(), capture_output=True)
 print(output.stdout.decode("utf-8"))
